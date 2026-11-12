@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Vorschau</title>
+<style>
+body{font-family:-apple-system,Arial,sans-serif;font-size:20px;margin:20px;line-height:1.4}
+h1{font-size:26px}
+.box{border:3px solid #1d4ed8;border-radius:12px;padding:12px 16px;margin:16px 0}
+.ok{color:#15803d;font-weight:700}
+.nein{color:#b91c1c;font-weight:700}
+/* Test 1: JavaScript */
+#js .ok{display:none}
+/* Test 2: Radio-Knoepfe mit :checked */
+.panel{display:none;padding:10px;border-radius:8px;margin-top:8px;font-weight:700}
+#r1:checked ~ #p1{display:block;background:#dbeafe}
+#r2:checked ~ #p2{display:block;background:#fde68a}
+#r3:checked ~ #p3{display:block;background:#bbf7d0}
+label{display:inline-block;border:3px solid #1d4ed8;border-radius:10px;padding:10px 16px;margin:4px 6px 4px 0;min-height:44px}
+input[type=radio]{width:22px;height:22px;vertical-align:middle}
+/* Test 3: Sprungmarken mit :target */
+.seite{display:none;padding:10px;border-radius:8px;margin-top:8px;font-weight:700}
+.seite:target{display:block;background:#fecaca}
+a.knopf{display:inline-block;border:3px solid #92400e;border-radius:10px;padding:10px 16px;margin:4px 6px 4px 0;color:#92400e;text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<h1>Test: Was zeigt die Vorschau?</h1>
+<p>Bitte alle drei Kästen ausprobieren und mir Ergebnis notieren.</p>
+
+<div class="box" id="js">
+  <b>Test 1 – JavaScript</b><br>
+  <span class="nein">JavaScript ist AUS</span>
+  <span class="ok">JavaScript ist AN</span>
+</div>
+
+<div class="box">
+  <b>Test 2 – Auswahlknöpfe (Radio)</b><br>
+  Tippe auf einen Knopf. Es sollte darunter ein farbiges Feld erscheinen.<br>
+  <input type="radio" name="t" id="r1"><label for="r1">Knopf A</label>
+  <input type="radio" name="t" id="r2"><label for="r2">Knopf B</label>
+  <input type="radio" name="t" id="r3"><label for="r3">Knopf C</label>
+  <div class="panel" id="p1">Feld A (blau)</div>
+  <div class="panel" id="p2">Feld B (gelb)</div>
+  <div class="panel" id="p3">Feld C (grün)</div>
+</div>
+
+<div class="box">
+  <b>Test 3 – Sprungmarken (Links)</b><br>
+  Tippe auf einen Link. Darunter sollte ein rotes Feld erscheinen.<br>
+  <a class="knopf" href="#s1">Link 1</a>
+  <a class="knopf" href="#s2">Link 2</a>
+  <div class="seite" id="s1">Seite 1 ist sichtbar</div>
+  <div class="seite" id="s2">Seite 2 ist sichtbar</div>
+</div>
+
+<script>
+document.getElementById("js").querySelector(".nein").style.display="none";
+document.getElementById("js").querySelector(".ok").style.display="inline";
+</script>
+</body>
+</html>
